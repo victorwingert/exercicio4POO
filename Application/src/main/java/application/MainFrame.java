@@ -10,54 +10,47 @@ public class MainFrame extends javax.swing.JFrame {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
+        java.awt.GridBagConstraints gridBagConstraints;
 
-        formularioPanel = new entitites.Formulario();
-        tabelaPanel = new entitites.Tabela();
+        Formulario = new javax.swing.JPanel();
+        formulario1 = new entitites.Formulario();
+        Tabela = new javax.swing.JPanel();
+        tabela2 = new entitites.Tabela();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(16, 16));
         setPreferredSize(new java.awt.Dimension(800, 450));
         setSize(new java.awt.Dimension(800, 450));
 
-        formularioPanel.setBackground(new java.awt.Color(204, 255, 255));
+        Formulario.setBackground(new java.awt.Color(255, 255, 255));
+        Formulario.setLayout(new java.awt.GridBagLayout());
 
-        javax.swing.GroupLayout formularioPanelLayout = new javax.swing.GroupLayout(formularioPanel);
-        formularioPanel.setLayout(formularioPanelLayout);
-        formularioPanelLayout.setHorizontalGroup(
-            formularioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 310, Short.MAX_VALUE)
-        );
-        formularioPanelLayout.setVerticalGroup(
-            formularioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 450, Short.MAX_VALUE)
-        );
+        formulario1.setBackground(new java.awt.Color(255, 255, 255));
+        gridBagConstraints = new java.awt.GridBagConstraints();
+        gridBagConstraints.gridx = 0;
+        gridBagConstraints.gridy = 0;
+        gridBagConstraints.ipadx = 9;
+        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+        gridBagConstraints.insets = new java.awt.Insets(6, 20, 30, 26);
+        Formulario.add(formulario1, gridBagConstraints);
 
-        tabelaPanel.setBackground(new java.awt.Color(153, 153, 255));
-
-        javax.swing.GroupLayout tabelaPanelLayout = new javax.swing.GroupLayout(tabelaPanel);
-        tabelaPanel.setLayout(tabelaPanelLayout);
-        tabelaPanelLayout.setHorizontalGroup(
-            tabelaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 490, Short.MAX_VALUE)
-        );
-        tabelaPanelLayout.setVerticalGroup(
-            tabelaPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
-        );
+        Tabela.setBackground(new java.awt.Color(255, 255, 255));
+        Tabela.setLayout(new java.awt.GridBagLayout());
+        Tabela.add(tabela2, new java.awt.GridBagConstraints());
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addComponent(formularioPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(Formulario, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(tabelaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(formularioPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(tabelaPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Formulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
         );
 
         pack();
@@ -96,7 +89,9 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private entitites.Formulario formularioPanel;
-    private entitites.Tabela tabelaPanel;
+    private javax.swing.JPanel Formulario;
+    private javax.swing.JPanel Tabela;
+    private entitites.Formulario formulario1;
+    private entitites.Tabela tabela2;
     // End of variables declaration//GEN-END:variables
 }
