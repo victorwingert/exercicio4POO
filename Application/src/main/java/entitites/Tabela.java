@@ -1,48 +1,61 @@
 package entitites;
 
-public class Tabela extends javax.swing.JPanel {
+import javax.swing.JTable;
+import javax.swing.table.DefaultTableModel;
+import javax.swing.table.TableColumn;
+
+public class Tabela extends JTable {
+
+    private DefaultTableModel tableModel;
 
     public Tabela() {
-        initComponents();
+        initiateTable();
+        this.getTableHeader().setReorderingAllowed(false);
+        setColumnWidths(new int[]{150, 200, 50, 150});
+        for (int i = 0; i < this.getColumnModel().getColumnCount(); i++) {
+            this.getColumnModel().getColumn(i).setResizable(false);
+        }
     }
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
-
-        jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+    public void initiateTable() {
+        String[] columns = {"Nome", "Data de Nascimento", "Idade", "CPF"};
+        tableModel = new DefaultTableModel(columns, 0) {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
             }
-        ));
-        jTable1.setPreferredSize(new java.awt.Dimension(400, 80));
-        jTable1.setRequestFocusEnabled(false);
-        jScrollPane1.setViewportView(jTable1);
+        };
+        this.setModel(tableModel);
+    }
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
-        this.setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 500, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 350, Short.MAX_VALUE)
-        );
-    }// </editor-fold>//GEN-END:initComponents
+    public void setColumnWidths(int[] widths) {
+        for (int i = 0; i < widths.length; i++) {
+            TableColumn column = this.getColumnModel().getColumn(i);
+            column.setPreferredWidth(widths[i]);
+        }
+    }
 
+    public void addRow(Object[] rowData) {
+        tableModel.addRow(rowData);
+    }
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    // End of variables declaration//GEN-END:variables
+    public void removeSelectedRow() throws CamposInvalidosException {
+        int selectedRow = this.getSelectedRow();
+        if (selectedRow != -1) {
+            tableModel.removeRow(selectedRow);
+        } else {
+            throw new CamposInvalidosException("Selecione um usário para remover!");
+        }
+    }
+
+    public void editSelectedRow(Object[] rowData) throws CamposInvalidosException {
+        int selectedRow = this.getSelectedRow();
+        if (selectedRow != -1 && rowData.length == tableModel.getColumnCount()) {
+            for (int i = 0; i < rowData.length; i++) {
+                tableModel.setValueAt(rowData[i], selectedRow, i);
+            }
+        } else {
+            throw new CamposInvalidosException("Selecione um usuário para editar!");
+        }
+    }
 }

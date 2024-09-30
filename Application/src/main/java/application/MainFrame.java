@@ -1,60 +1,66 @@
 package application;
 
+import entitites.Tabela;
+
 public class MainFrame extends javax.swing.JFrame {
 
     public MainFrame() {
         initComponents();
         setVisible(true);
+        setResizable(false);
+        setLocationRelativeTo(null);
+        formulario.setTabela(tabela);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
-        java.awt.GridBagConstraints gridBagConstraints;
 
-        Formulario = new javax.swing.JPanel();
-        formulario1 = new entitites.Formulario();
-        Tabela = new javax.swing.JPanel();
-        tabela2 = new entitites.Tabela();
+        Telas = new javax.swing.JPanel();
+        formulario = new entitites.Formulario();
+        tabelaContainer = new javax.swing.JScrollPane();
+        tabela = new entitites.Tabela();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Cadastro Pessoal");
+        setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(16, 16));
-        setPreferredSize(new java.awt.Dimension(800, 450));
         setSize(new java.awt.Dimension(800, 450));
+        getContentPane().setLayout(new java.awt.CardLayout());
 
-        Formulario.setBackground(new java.awt.Color(255, 255, 255));
-        Formulario.setLayout(new java.awt.GridBagLayout());
+        Telas.setBackground(new java.awt.Color(255, 255, 255));
 
-        formulario1.setBackground(new java.awt.Color(255, 255, 255));
-        gridBagConstraints = new java.awt.GridBagConstraints();
-        gridBagConstraints.gridx = 0;
-        gridBagConstraints.gridy = 0;
-        gridBagConstraints.ipadx = 9;
-        gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-        gridBagConstraints.insets = new java.awt.Insets(6, 20, 30, 26);
-        Formulario.add(formulario1, gridBagConstraints);
+        tabelaContainer.setViewportView(tabela);
 
-        Tabela.setBackground(new java.awt.Color(255, 255, 255));
-        Tabela.setLayout(new java.awt.GridBagLayout());
-        Tabela.add(tabela2, new java.awt.GridBagConstraints());
-
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(Formulario, javax.swing.GroupLayout.PREFERRED_SIZE, 245, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, 0)
-                .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 555, Short.MAX_VALUE))
+        javax.swing.GroupLayout TelasLayout = new javax.swing.GroupLayout(Telas);
+        Telas.setLayout(TelasLayout);
+        TelasLayout.setHorizontalGroup(
+            TelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, TelasLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(formulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(15, 15, 15)
+                .addComponent(tabelaContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(37, Short.MAX_VALUE))
         );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Formulario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addComponent(Tabela, javax.swing.GroupLayout.DEFAULT_SIZE, 450, Short.MAX_VALUE)
+        TelasLayout.setVerticalGroup(
+            TelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(TelasLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addGroup(TelasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(tabelaContainer, javax.swing.GroupLayout.PREFERRED_SIZE, 275, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(formulario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(10, Short.MAX_VALUE))
         );
+
+        getContentPane().add(Telas, "card2");
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    public Tabela getTabela() {
+        return tabela;
+    }
 
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -89,9 +95,9 @@ public class MainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel Formulario;
-    private javax.swing.JPanel Tabela;
-    private entitites.Formulario formulario1;
-    private entitites.Tabela tabela2;
+    private javax.swing.JPanel Telas;
+    private entitites.Formulario formulario;
+    private entitites.Tabela tabela;
+    private javax.swing.JScrollPane tabelaContainer;
     // End of variables declaration//GEN-END:variables
 }
